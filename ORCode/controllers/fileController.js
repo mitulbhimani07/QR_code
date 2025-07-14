@@ -33,17 +33,14 @@ exports.uploadFile = async (req, res) => {
     error: null,
   });
 };
-
 exports.downloadFile = async (req, res) => {
   const { fileId } = req.params;
   const file = await File.findOne({ uuid: fileId });
   if (!file) return res.status(404).send('File not found');
 
   const filePath = path.join(__dirname, '..', 'uploads', file.uniqueName);
-
-  // Increment download count
   file.downloadCount += 1;
   await file.save();
 
   res.download(filePath, file.originalName);
-}; 
+};
