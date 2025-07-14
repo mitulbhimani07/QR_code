@@ -3,7 +3,7 @@ const QRCode = require('qrcode');
 const { v4: uuidv4 } = require('uuid');
 const File = require('../db/File');
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
+const BASE_URL = process.env.BASE_URL || 'https://qr-code-90c2.onrender.com';
 
 exports.showHome = (req, res) => {
   res.render('index');
