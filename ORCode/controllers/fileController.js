@@ -23,7 +23,7 @@ exports.uploadFile = async (req, res) => {
     mimeType: mimetype,
   });
 
-  const downloadLink = `${BASE_URL}/download/${uuid}`;
+  const downloadLink = `${BASE_URL}/download/${uuid}`; 
   const qrCode = await QRCode.toDataURL(downloadLink);
 
   res.render('result', {
